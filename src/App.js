@@ -1,4 +1,3 @@
-import './App.css';
 import UserProvider from './Context';
 import Routes from './Routes';
 

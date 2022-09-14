@@ -1,21 +1,19 @@
+import regexList from "./regexList";
+
 export const validateEmail = (email) => {
-  const regex = /^(([^<>()[\]\\.,;:\s@\\"]+(\.[^<>()[\]\\.,;:\s@\\"]+)*)|(\\".+\\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return regex.test(email);
+  return regexList.email.test(email);
 };
 
 export const validateName = (name) => {
-  const regex = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]{2,50}$/;
-  return regex.test(name);
+  return regexList.name.test(name)
 };
 
 export const validateCpf = (cpf) => {
-  const regex = /^[0-9]{11}$/;
-  return regex.test(cpf);
+  return regexList.cpf.test(cpf);
 };
 
 export const validatePhone = (phone) => {
-  const regex = /^[0-9]{10,11}$/;
-  return regex.test(phone);
+  return regexList.phone.test(phone);
 };
 
 export const validatePassword = (pass) => {
@@ -60,6 +58,5 @@ export const validateFields = (inputName, inputEmail, inputCpf,
 };
 
 export const validateOpen = (open) => {
-  const regex = /^(true|false)$/;
-  return regex.test(open);
+  return regexList.toggle.test(open);
 };
