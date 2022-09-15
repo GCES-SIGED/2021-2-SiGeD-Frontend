@@ -1,4 +1,4 @@
-import { APISectors } from './baseService/index';
+import { APISectors } from './api/sectors';
 
 export async function getSectors(startModal) {
   try {

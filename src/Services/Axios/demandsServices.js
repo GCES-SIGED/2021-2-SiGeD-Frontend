@@ -1,4 +1,4 @@
-import { APIDemands } from './baseService';
+import { APIDemands } from './api/demands';
 
 export async function getClientByDemands(url, startModal) {
   try {

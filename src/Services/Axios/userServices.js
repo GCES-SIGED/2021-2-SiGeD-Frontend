@@ -1,6 +1,7 @@
-import {
-  APIUsers, APIDemands, APIClients, APISectors,
-} from './baseService/index';
+import { APIUsers } from './api/users';
+import { APISectors } from './api/sectors';
+import { APIClients } from './api/clients';
+import { APIDemands } from './api/demands';
 
 export async function getUser(url, startModal) {
   try {
@@ -36,7 +37,7 @@ export async function postUser(
   inputName, inputEmail, inputRole, inputSector, baseImage, startModal,
 ) {
   try {
-    await APIUsers.post('signup', {
+    await APIUsers.post('/signup', {
       name: inputName,
       email: inputEmail,
       role: inputRole,
