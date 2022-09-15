@@ -6,7 +6,7 @@ import { BsBell } from 'react-icons/bs';
 import styles from './Style';
 import { useProfileUser } from '../../Context';
 import { getAlertsBySector } from '../../Services/Axios/demandsServices';
-import { APIUsers } from '../../Services/Axios/baseService';
+import { APIUsers } from '../../Services/Axios/api-services';
 import ViewAlertModal from '../ViewAlertModal';
 import Logo from '../../Logo/SiGeD_Logo.png';
 

@@ -4,9 +4,10 @@ import GenericListScreen from '../../Components/GenericListScreen';
 import {
   TableHeader, TableTitle, P, Bar,
 } from './Style';
-import {
-  getCargos, createCargo, updateCargo, deactivateRole,
-} from '../../Services/Axios/clientServices';
+import { 
+  getRoles, createRole, updateRole, deactivateRole,
+} from '../../Services/Axios/roleServices';
+
 import { useProfileUser } from '../../Context';
 import DataList from '../../Components/DataList';
 import ModalComp from '../../Components/ModalComp';
@@ -21,8 +22,8 @@ const WorkspaceListScreen = () => {
   const toggleModal = () => setStatusModal(!statusModal);
 
   const getWorkspacesFromApi = async () => {
-    await getCargos('role', startModal)
-      .then((response) => setWorkspaces(response.data));
+    const response = await getRoles(startModal)
+    setWorkspaces(response.data)
   };
 
   useEffect(() => {
@@ -53,7 +54,7 @@ const WorkspaceListScreen = () => {
         getContent={getWorkspacesFromApi}
         color="black"
         axiosDelete={deactivateRole}
-        updateContent={updateCargo}
+        updateContent={updateRole}
         type="Cargos"
       />
     ));
@@ -87,7 +88,7 @@ const WorkspaceListScreen = () => {
         </TableTitle>
         <TableTitle width={2} />
       </TableHeader>
-      { statusModal ? <ModalComp show={statusModal} type="Cargos" operation="Nova " idName="" idDescription="" idColor="#000000" getContent={getWorkspacesFromApi} handleClose={toggleModal} createContent={createCargo} /> : null}
+      { statusModal ? <ModalComp show={statusModal} type="Cargos" operation="Nova " idName="" idDescription="" idColor="#000000" getContent={getWorkspacesFromApi} handleClose={toggleModal} createContent={createRole} /> : null}
     </GenericListScreen>
   );
 };

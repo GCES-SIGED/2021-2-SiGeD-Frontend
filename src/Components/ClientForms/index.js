@@ -11,7 +11,8 @@ import {
 } from './Style';
 import colors from '../../Constants/colors';
 import { useProfileUser } from '../../Context';
-import { getClients, getCargos } from '../../Services/Axios/clientServices';
+import { getClients } from '../../Services/Axios/clientServices';
+import { getRoles } from '../../Services/Axios/roleServices';
 
 const ClientForms = ({
   setInputName,
@@ -59,7 +60,7 @@ const ClientForms = ({
   useEffect(() => {
     async function loadLotacao() {
       const response = await getClients('/lotacao/actives', startModal);
-      const roleResponse = await getCargos('/role', startModal);
+      const roleResponse = await getRoles(startModal);
       if (id) {
         const lotacaoinforesponse = await getClients(`clients/${id}`, startModal);
         setIdLot(lotacaoinforesponse.data.location._id);
